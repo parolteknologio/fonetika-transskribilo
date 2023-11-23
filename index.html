@@ -6,62 +6,67 @@
     <title>Esperanto to Polish Transcription</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
         }
 
         textarea,
         #outputField {
             width: 70%;
-            margin: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            resize: vertical;
-        }
-
-        #outputField {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
             background-color: #fff;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            resize: vertical;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         button {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #007bff;
+            background-color: #4CAF50;
             color: white;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #388E3C;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-
 <body>
     <h1>Esperanta fonetika transskribilo</h1>
     <textarea id="inputField"
         placeholder="Enter Esperanto text here">Esperanta Vikipedio estas projekto de kunlabora enciklopedio, universala kaj plurlingva, kreita interrete laŭ la
     vikio-principo. Ĝi celas liveri en Esperanto liberan, objektivan kaj kontroleblan enhavon, kiun ĉiuj povas redakti.</textarea>
+    <label for="rulesSelect">Agordoj:</label>
     <select id="rulesSelect">
         <option value="elevenlabs">ElevenLabs</option>
         <option value="transcription_rules">Vocx</option>
         <!-- Add other options as needed -->
     </select>
+    <p>
     <button id="transcribeButton">Transskribu</button>
+    </p>
     <div id="outputField"></div>
     <button id="copyButton">Kopiu!</button>
 
@@ -76,15 +81,16 @@
             });
         });
     </script>
-<h2>Elevenlabs</h2>
-<p><a href="https://elevenlabs.io/">elevenlabs.io</a> bone funkcias kun la voĉoj "Bella", "Patrick", "Clyde", "Thomas" kaj "Jeremy". Ofte indas elekti Versio 1 de Elevenlabs.</p>
+    <h2>Elevenlabs</h2>
+    <p><a href="https://elevenlabs.io/">elevenlabs.io</a> bone funkcias kun la voĉoj "Bella", "Patrick", "Clyde",
+        "Thomas" kaj "Jeremy". Ofte indas elekti Versio 1 de Elevenlabs.</p>
 
     <h2>Ligiloj</h2>
     <ul>
         <li><a href="https://parol.martinrue.com/">parol.martinrue.com</a></li>
         <li><a href="https://github.com/martinrue/vocx">github.com/martinrue/vocx</a></li>
         <li><a href="https://parolteknologio.github.io/">parolteknologio.github.io/</a></li>
-        <li><a href="https://github.com/parolteknologio/fonetika-transskribilo">github.com/parolteknologio/fonetika-transskribilo</a></li>
+        <li><a href=""></a></li>
     </ul>
 </body>
 
