@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Esperanto to Polish Transcription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        textarea,
+        #outputField {
+            width: 70%;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            resize: vertical;
+        }
+
+        #outputField {
+            background-color: #fff;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Esperanta fonetika transskribilo</h1>
+    <textarea id="inputField"
+        placeholder="Enter Esperanto text here">Esperanta Vikipedio estas projekto de kunlabora enciklopedio, universala kaj plurlingva, kreita interrete laŭ la
+    vikio-principo. Ĝi celas liveri en Esperanto liberan, objektivan kaj kontroleblan enhavon, kiun ĉiuj povas redakti.</textarea>
+    <select id="rulesSelect">
+        <option value="elevenlabs">ElevenLabs</option>
+        <option value="transcription_rules">Vocx</option>
+        <!-- Add other options as needed -->
+    </select>
+    <button id="transcribeButton">Transskribu</button>
+    <div id="outputField"></div>
+    <button id="copyButton">Kopiu!</button>
+
+    <script src="transcribe.js"></script>
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function () {
+            var text = document.getElementById('outputField').innerText;
+            navigator.clipboard.writeText(text).then(function () {
+                console.log('Text copied to clipboard');
+            }).catch(function (err) {
+                console.log('Error in copying text: ' + err);
+            });
+        });
+    </script>
+<h2>Elevenlabs</h2>
+<p><a href="https://elevenlabs.io/">elevenlabs.io</a> bone funkcias kun la voĉoj "Bella", "Patrick", "Clyde", "Thomas" kaj "Jeremy". Ofte indas elekti Versio 1 de Elevenlabs.</p>
+
+    <h2>Ligiloj</h2>
+    <ul>
+        <li><a href="https://parol.martinrue.com/">parol.martinrue.com</a></li>
+        <li><a href="https://github.com/martinrue/vocx">github.com/martinrue/vocx</a></li>
+        <li><a href="https://parolteknologio.github.io/">parolteknologio.github.io/</a></li>
+        <li><a href=""></a></li>
+    </ul>
+</body>
+
+</html>
