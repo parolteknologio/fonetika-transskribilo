@@ -17,3 +17,4 @@ Voices that work best:
 * Thomas
 * Jeremy
 * Dorothy
+* Glinda
