@@ -1,7 +1,7 @@
 # fonetika-transskribilo
-Bazita sur [Voscx](https://github.com/martinrue/vocx)
+Based on [Voscx](https://github.com/martinrue/vocx)
 
-https://parolteknologio.github.io/fonetika-transskribilo/
+Try it: https://parolteknologio.github.io/fonetika-transskribilo/
 
 ## Background
 
