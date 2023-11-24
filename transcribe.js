@@ -99,18 +99,6 @@ function transcribeEsperantoToPolish(text) {
     text = text.replace(new RegExp(override.eo, "g"), override.pl);
   }
 
-  // Apply fragment replacements
-  for (let fragment of rules.fragments) {
-    text = text.replace(new RegExp(fragment.match, "g"), fragment.replace);
-  }
-
-  // Apply number replacements with more complex logic
-  text = text.replace(/\b(\d+)(?:\.(\d+))?\b/g, (match, whole, fraction) => {
-    whole = parseInt(whole, 10);
-    fraction = fraction ? parseInt(fraction, 10) : 0;
-    return transcribeNumber(whole, fraction, rules);
-  });
-
   // Transcribe letter by letter
   let transcribedText = "";
   for (let char of text) {
@@ -120,6 +108,19 @@ function transcribeEsperantoToPolish(text) {
       transcribedText += char; // Keep the character as is if no rule applies
     }
   }
+  
+   // Apply fragment replacements
+  for (let fragment of rules.fragments) {
+    text = text.replace(new RegExp(fragment.match, "g"), fragment.replace);
+  }
+  
+  // Apply number replacements with more complex logic
+  text = text.replace(/\b(\d+)(?:\.(\d+))?\b/g, (match, whole, fraction) => {
+    whole = parseInt(whole, 10);
+    fraction = fraction ? parseInt(fraction, 10) : 0;
+    return transcribeNumber(whole, fraction, rules);
+  });
+  
 
   return transcribedText;
 }
